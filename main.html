@@ -1,0 +1,75 @@
+
+ <!DOCTYPE html>
+ <html ng-app="myApp" lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <title>AngularJS carousel</title>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-animate.min.js"></script>
+     <script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+ </head>
+ <body style="background-color:#72b9f9;">
+     <div ng-controller="CarouselCtrl">
+         <div style="height: 40%;width:100%;background-color:#f5f6f8;">
+             <carousel interval="myInterval" no-wrap="noWrapSlides">
+                 <slide ng-repeat="slide in slides" active="slide.active">
+                     <img ng-src="{{slide.image}}" style="margin:auto;">
+                     <div class="carousel-caption">
+                         <!-- <h4>{{$index}}</h4> -->
+                         <p>{{slide.text}}</p>
+                     </div>
+                 </slide>
+             </carousel>
+         </div>
+         <div class= "bottom">
+            <img src="bottom.png" style="width:100%;"> 
+            <p style="text-align: center;color: white; font-size: 18px;">
+                    欢迎使用青藏铁路无线上网服务
+            </p>
+            <p style="text-align: center;color: rgb(44, 43, 43); font-size: 14px;">
+                    请点击下载APP
+            </p>
+            <a href="">
+                <img src="android.png" style="margin:0 auto;width:50%;clear:both;display:block;margin:auto;"> 
+            </a>
+            <p style="text-align: center;color: white; font-size: 14px;">
+                    android系统5.0以上
+            </p>
+            <a href="">
+                <img src="iphone.png" style="margin:0 auto;width:50%;clear:both;display:block;margin:auto; "> 
+            </a>
+            <p style="text-align: center;color: white; font-size: 14px;">
+                    IOS系统8.0以上
+            </p>
+         </div>
+     </div>
+     <script>
+         angular.module('myApp', ['ui.bootstrap', 'ngAnimate']).controller('CarouselCtrl', function ($scope) {
+             $scope.myInterval = 1300;
+             $scope.noWrapSlides = false;
+             var slides = $scope.slides = [];
+             $scope.addSlide = function () {
+                 slides.push({
+                     image: 'http://img2.imgtn.bdimg.com/it/u=2738112815,721516149&fm=27&gp=0.jpg',
+                     text: '',
+                 });
+                 slides.push({
+                     image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3548916392,3337900655&fm=27&gp=0.jpg',
+                     text: '',
+                 });
+                 slides.push({
+                     image: 'http://img2.imgtn.bdimg.com/it/u=2738112815,721516149&fm=27&gp=0.jpg',
+                     text: '',
+                 });
+                 slides.push({
+                     image: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3548916392,3337900655&fm=27&gp=0.jpg',
+                     text: '',
+                 });
+             };
+             $scope.addSlide();
+         });
+     </script>
+ </body>
+ </html>
+ 
